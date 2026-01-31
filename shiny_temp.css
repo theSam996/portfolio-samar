@@ -1,0 +1,39 @@
+/* Shiny Text Effect */
+.shiny-text {
+    color: #b5b5b5;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 40%,
+            #ffffff 50%,
+            rgba(255, 255, 255, 0) 60%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: shine 2s linear infinite;
+    /* Fallback for non-supported browsers if needed, typically color takes precedence if background-clip fails, 
+       but here we set text-fill-color to transparent. 
+       Better approach for compatibility:
+       color: #b5b5b5;
+       background-image: linear...
+    */
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* We need the base color to vary? 
+       Actually, usually the gradient *is* the text color. 
+       The user said color="#b5b5b5" and shineColor="#ffffff".
+    */
+    background: linear-gradient(120deg,
+            #b5b5b5 40%,
+            #ffffff 50%,
+            #b5b5b5 60%);
+    background-size: 200% auto;
+}
+
+@keyframes shine {
+    to {
+        background-position: -200% center;
+    }
+}
